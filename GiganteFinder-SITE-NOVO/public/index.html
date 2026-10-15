@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<meta name="theme-color" content="#0b1315" />
+<meta name="description" content="GiganteFinder — radar de avistamentos de pets gigantes e busca de servidores públicos do Roube um Ovo. Projeto independente." />
+<title>GiganteFinder | Radar do Roube um Ovo</title>
+<link rel="stylesheet" href="./style.css" />
+<script defer src="./app.js"></script>
+</head>
+<body>
+<div class="ambient" aria-hidden="true"></div>
+<div class="shell">
+<header class="topbar">
+  <a class="brand" href="#inicio" aria-label="GiganteFinder, início">
+    <span class="brand-logo" aria-hidden="true"><span class="dot"></span><span class="ring ring-a"></span><span class="ring ring-b"></span></span>
+    <span><strong>GIGANTE<span>FINDER</span></strong><small>STEAL AN EGG • RADAR</small></span>
+  </a>
+  <div class="top-actions"><span class="live-pill"><i></i> RADAR DA COMUNIDADE</span><a class="nav-button" href="#buscar">Começar <span aria-hidden="true">↗</span></a></div>
+</header>
+<main id="inicio">
+  <section class="hero">
+    <div class="hero-text">
+      <div class="eyebrow"><span class="mark">✦</span> NOVO • GIGANTE TRACKER <span class="slash">/</span> 2026</div>
+      <h1>CAÇANDO<br /><span class="green-type">GIGANTES</span><span class="punct">.</span></h1>
+      <p class="hero-lead">Escolha um pet, veja <strong>avistamentos recentes</strong> da comunidade e explore servidores públicos reais do <b>Roube um Ovo</b>.</p>
+      <div class="hero-buttons"><a href="#buscar" class="btn btn-primary">Procurar pet <span aria-hidden="true">↗</span></a><a href="#servidores" class="btn btn-ghost">Ver servidores <span aria-hidden="true">↓</span></a></div>
+      <div class="trust-row"><span><i class="status-dot"></i> Sem login</span><span><i class="status-dot"></i> Feito para celular</span><span><i class="status-dot"></i> Dados Roblox</span></div>
+    </div>
+    <div class="hero-graphic" aria-hidden="true">
+      <div class="radar-art"><div class="art-orbit art-1"></div><div class="art-orbit art-2"></div><div class="art-orbit art-3"></div><div class="scan-sweep"></div><div class="ping-one"></div><div class="ping-two"></div><div class="target">
+        <svg viewBox="0 0 130 148" role="img"><path d="M65 7C43 7 20 51 20 90c0 32 20 52 45 52s45-20 45-52C110 51 87 7 65 7Z" fill="#f8fcf2" stroke="#d6e6db" stroke-width="5"/><ellipse cx="52" cy="79" rx="5" ry="7" fill="#91a9a0"/><ellipse cx="78" cy="79" rx="5" ry="7" fill="#91a9a0"/><path d="M57 104c5 5 11 5 16 0" stroke="#91a9a0" stroke-width="4" fill="none" stroke-linecap="round"/><path d="M38 70c2-10 5-20 10-28" stroke="#fff" stroke-width="8" stroke-linecap="round" opacity=".8"/></svg>
+      </div><div class="data-card data-card-a">OBJETIVO <b>PET GIGANTE</b></div><div class="data-card data-card-b"><span class="mini-light"></span> RASTREANDO SALAS...</div><div class="coordinate">GG-014 / ACTIVE SEARCH</div></div>
+    </div>
+  </section>
+  <div class="stats" aria-label="Informações do radar"><div><span>01 /</span><strong>SEM CONTAS</strong><small>Acesso aberto</small></div><div><span>02 /</span><strong>RELATOS RECENTES</strong><small>Com horário do registro</small></div><div><span>03 /</span><strong>SERVIDORES REAIS</strong><small>Listados pelo Roblox</small></div></div>
+  <section class="section" id="buscar">
+    <div class="section-head"><div><div class="kicker"><span></span> 01 — RASTREADOR DE PETS</div><h2>Qual gigante <em>você procura?</em></h2><p>Pesquise pelo nome. O radar mostra avistamentos enviados por jogadores, não detecções automáticas.</p></div><div class="section-index">01/03</div></div>
+    <div class="search-panel">
+      <form id="searchForm" class="search-row"><label class="input-wrap"><span>NOME DO PET</span><input id="petSearch" name="pet" list="petsKnown" autocomplete="off" maxlength="56" placeholder="Digite ou selecione o nome do pet" aria-label="Nome do pet" /><datalist id="petsKnown"></datalist></label><button type="submit" class="btn btn-primary search-submit"><span class="search-ico" aria-hidden="true">⌕</span> Buscar gigante</button></form>
+      <div class="search-foot"><span><span class="pulse-small"></span> Relatos expiram em 25 minutos</span><button class="text-button" id="clearSearch" type="button">Mostrar todos os relatos ↗</button></div>
+    </div>
+    <div class="results-toolbar"><div><strong id="reportCount">AVISTAMENTOS RECENTES</strong><span id="reportSub">Carregando dados da comunidade...</span></div><button id="refreshReports" type="button" class="small-button">↻ Atualizar</button></div>
+    <div id="reportResults" class="report-grid" aria-live="polite"><div class="placeholder-card"><div class="empty-symbol">◎</div><strong>Carregando radar...</strong><p>Estamos consultando os relatos mais recentes.</p></div></div>
+    <p class="transparency"><b>IMPORTANTE:</b> o Roblox não informa quais pets estão dentro de cada servidor. Avistamentos são relatos de usuários <b>não verificados</b>. Sempre confira no jogo.</p>
+  </section>
+  <section class="section" id="servidores">
+    <div class="section-head"><div><div class="kicker"><span></span> 02 — EXPLORADOR DE SALAS</div><h2>Servidores <em>disponíveis.</em></h2><p>Aqui os IDs, jogadores e vagas vêm da lista pública do Roblox. Nenhum pet é garantido nestas salas.</p></div><div class="section-index">02/03</div></div>
+    <div class="server-controls"><label><span>ORDENAR POR</span><select id="sort"><option value="Asc">Menos jogadores</option><option value="Desc">Mais jogadores</option></select></label><label><span>VAGAS MÍNIMAS</span><select id="slots"><option value="1">1 vaga</option><option value="2">2 vagas</option><option value="5">5 vagas</option><option value="10">10 vagas</option></select></label><button type="button" id="loadServers" class="btn btn-primary">↻ Procurar servidores</button></div>
+    <div class="server-head"><span><span class="pulse-small"></span> LISTA PÚBLICA DE SERVIDORES</span><span id="serverMetrics">Nenhuma busca feita</span></div>
+    <div id="serverResults" class="server-list" aria-live="polite"><div class="server-empty"><span class="empty-symbol">⌁</span><h3>PRONTO PARA EXPLORAR?</h3><p>Clique em “Procurar servidores” para consultar salas públicas com vagas.</p></div></div>
+    <div class="server-bottom"><button type="button" id="moreServers" class="btn btn-outline" hidden>Carregar mais salas ↓</button><small>As vagas podem mudar antes da entrada no Roblox.</small></div>
+  </section>
+  <section class="section" id="relatar">
+    <div class="section-head"><div><div class="kicker"><span></span> 03 — CONTRIBUA COM O RADAR</div><h2>Encontrou um <em>gigante?</em></h2><p>Compartilhe o nome e o ID da sala para outros jogadores tentarem encontrar também.</p></div><div class="section-index">03/03</div></div>
+    <div class="report-layout"><div class="report-help"><span class="help-circle">↗</span><h3>AJUDE OUTROS<br>CAÇADORES.</h3><p>Os avistamentos ficam públicos por até 25 minutos e são marcados como <b>não verificados</b>. Um pet pode sair da sala a qualquer momento.</p><div class="help-lines"><div><span>01</span> Encontre o pet no Roblox.</div><div><span>02</span> Copie o Job ID daquela sala.</div><div><span>03</span> Registre o avistamento aqui.</div></div></div>
+    <form id="reportForm" class="report-form"><div class="form-title">NOVO AVISTAMENTO <span>↗</span></div><label>Nome do pet<input id="reportPet" name="pet" required minlength="2" maxlength="56" placeholder="Ex.: nome do pet visto" /></label><label>Job ID do servidor<input id="reportJob" name="serverId" required spellcheck="false" autocapitalize="off" placeholder="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" /></label><label>Link da prova (opcional)<input id="reportProof" name="proof" type="url" maxlength="400" placeholder="https://..." /></label><label class="checkline"><input type="checkbox" id="confirmReport" required /><span>Confirmo que vi esse pet no servidor informado.</span></label><button class="btn btn-primary" id="sendReport" type="submit">Enviar avistamento <span>↗</span></button><p class="form-feedback" id="formFeedback" role="status"></p></form></div>
+  </section>
+</main>
+<footer class="footer"><div class="footer-brand"><span class="footer-egg">◉</span> GIGANTE<span>FINDER</span></div><div><span>Ferramenta independente, sem afiliação com Roblox.</span><a href="https://www.roblox.com/games/107778070777162" target="_blank" rel="noopener noreferrer">Abrir jogo oficial ↗</a></div><small>FEITO PARA A COMUNIDADE • 2026</small></footer>
+</div>
+<div id="toast" class="toast" role="status" hidden></div>
+<div id="joinOverlay" class="overlay" hidden><div class="join-card" role="dialog" aria-modal="true" aria-labelledby="joinTitle"><button id="closeJoin" class="close-join" aria-label="Fechar">✕</button><div class="join-icon">↗</div><h3 id="joinTitle">ABRIR NO ROBLOX</h3><p id="joinText">Vamos tentar abrir o servidor selecionado no aplicativo Roblox. É preciso ter o jogo instalado.</p><div class="job-preview" id="joinJob"></div><a id="joinDirect" class="btn btn-primary" href="#">Tentar entrar ↗</a><a class="btn btn-outline" href="https://www.roblox.com/games/107778070777162" target="_blank" rel="noopener noreferrer">Página do jogo ↗</a><button type="button" class="text-button" id="copyJob">Copiar Job ID</button><small>A entrada na sala exata depende do Roblox e das vagas disponíveis.</small></div></div>
+</body>
+</html>

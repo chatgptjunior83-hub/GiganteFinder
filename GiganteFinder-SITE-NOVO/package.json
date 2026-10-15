@@ -1,0 +1,12 @@
+{
+  "name": "gigantefinder-roblox",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/check.mjs",
+    "check": "node scripts/check.mjs"
+  },
+  "engines": {"node": ">=20"},
+  "dependencies": {"@netlify/blobs": "^11.1.4"}
+}
